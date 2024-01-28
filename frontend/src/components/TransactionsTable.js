@@ -5,7 +5,7 @@ import TransactionItem from './TransactionItem';
 // Function to make an API request to update a transaction
 const updateTransaction = async (transactionData) => {
   try {
-    const response = await fetch('http://127.0.0.1:8090/update_transaction', { // Please make sure this is your actual API endpoint for updating a transaction
+    const response = await fetch('https://crypto-backend-service-4svxr73vvq-uc.a.run.app/update_transaction', { // Please make sure this is your actual API endpoint for updating a transaction
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -47,8 +47,8 @@ export default function TransactionsTable({ transactions }) {
             <Th>Type</Th>
             <Th>Number of Coins</Th>
             <Th>Price Purchased At</Th>
-            <Th>Value USD</Th>
-            <Th>User Name</Th>
+            <Th>Total Value USD</Th>
+            
             <Th>Status</Th>
             
             <Th>Transaction Date</Th>

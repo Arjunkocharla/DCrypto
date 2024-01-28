@@ -58,11 +58,11 @@ export default function TransactionItem({ transaction, onSave }) {
           <Td isNumeric><Input value={editedTransaction.coins.toString()} onChange={(e) => handleChange(e, 'coins')} type="number" /></Td>
           <Td isNumeric><Input value={editedTransaction.purchased_price.toString()} onChange={(e) => handleChange(e, 'purchased_price')} type="number" /></Td>
           <Td isNumeric><Input value={editedTransaction.value_usd.toString()} onChange={(e) => handleChange(e, 'value_usd')} type="number" /></Td>
-          <Td><Input value={editedTransaction.createdBy} onChange={(e) => handleChange(e, 'createdBy')} /></Td>
+          
           <Td><Input value={editedTransaction.status} onChange={(e) => handleChange(e, 'status')} /></Td>
           
           <Td isNumeric><Input value={formatDate(editedTransaction.date)} onChange={(e) => handleChange(e, 'date')} type="date" /></Td>
-          <Td><Input value={editedTransaction.userId} onChange={(e) => handleChange(e, 'actions')} /></Td>
+          
           <Td><Button onClick={handleSave} colorScheme="blue">Save</Button></Td>
         </>
       ) : (
@@ -73,7 +73,7 @@ export default function TransactionItem({ transaction, onSave }) {
           <Td isNumeric>{transaction.coins}</Td>
           <Td isNumeric>${transaction.purchased_price}</Td>
           <Td isNumeric>${transaction.value_usd}</Td>
-          <Td>{transaction.createdBy}</Td>
+          
           <Td>{transaction.status}</Td>
          
           <Td isNumeric>{initialTransaction.date}</Td>

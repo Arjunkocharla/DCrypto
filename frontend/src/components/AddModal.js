@@ -50,7 +50,7 @@ export default function AddModal({ isOpen, onClose, onAdd }) {
       userId: userId, // Adding userId from the hook
     };
 
-    fetch("http://127.0.0.1:8090/add_transaction", {  
+    fetch("https://crypto-backend-service-4svxr73vvq-uc.a.run.app/add_transaction", {  
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

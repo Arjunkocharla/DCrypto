@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     // Ensure userID is not null or undefined before fetching.
     if (userId) {
-      fetch(`http://127.0.0.1:8090/get_details_coinwise?userId=${userId}`) // Use template literal for dynamic userId
+      fetch(`https://crypto-backend-service-4svxr73vvq-uc.a.run.app/get_details_coinwise?userId=${userId}`) // Use template literal for dynamic userId
         .then((response) => response.json())
         .then((data) => {
           // Ensure data is in expected format (array).
@@ -44,7 +44,7 @@ function App() {
 
   return (
     <ChakraProvider>
-      <Box bg="#004b49" color="white" minHeight="100vh" maxWidth="100vw" padding={8} width="full">
+      <Box bg="gray.800" color="white" minHeight="100vh" maxWidth="100vw" padding={8} width="full">
         <VStack>
           <Summary
             portfolioCost={portfolioCost}
@@ -54,9 +54,9 @@ function App() {
           />
           <Visualization rollups={rollups} />
           <Center width="500px" justifyContent="space-between">
-            <Button size="lg" colorScheme="teal" onClick={home} variant="solid">Back</Button>
+            <Button size="lg" colorScheme="blue" onClick={home} variant="solid">Back</Button>
             {/* Presumably, the "Forecast" button is a placeholder for future functionality. */}
-            <Button size="lg" colorScheme="teal" onClick={() => console.log('Forecast functionality to be implemented')} variant="solid">Forecast</Button>
+            <Button size="lg" colorScheme="blue" onClick={() => console.log('Forecast functionality to be implemented')} variant="solid">Forecast</Button>
           </Center>
         </VStack>
       </Box>

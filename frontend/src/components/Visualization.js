@@ -23,7 +23,7 @@ export default function Visualization({ rollups }) {
   return (
     <Center>
       <VStack>
-        <Text fontSize="xl" fontWeight="bold">Cost vs Equity</Text>
+        <Text fontSize="xl" fontWeight="bold">Cost vs Current Equity</Text>
         <BarChart
           width={600}
           height={300}
@@ -40,7 +40,7 @@ export default function Visualization({ rollups }) {
           <Tooltip />
           <Legend />
           <Bar dataKey="total_equity" fill="#FFA500" />
-          <Bar dataKey="total_cost" fill="#FFC0CB" />
+          <Bar dataKey="total_value" fill="#FFC0CB" />
         </BarChart>
 
         <HStack spacing={10}>
@@ -75,7 +75,7 @@ export default function Visualization({ rollups }) {
                 cy="50%"
                 outerRadius={80}
                 fill="#8884d8"
-                label
+                label={false} 
               >
                 {safeRollups.map((entry, index) => (
                   <Cell key={`equity-${index}`} fill={COLORS[index % COLORS.length]} />

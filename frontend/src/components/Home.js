@@ -7,6 +7,7 @@ import {
   Heading,
   ChakraProvider,
   useDisclosure,
+  Flex
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom"; // Import these
 import MyAppBar from './appbar'; // Make sure this path is correct
@@ -25,7 +26,7 @@ function Home() {
 
   useEffect(() => {
     if (userId) {
-      fetch(`http://127.0.0.1:8090/get_transactions?userId=${userId}`)
+      fetch(`https://crypto-backend-service-4svxr73vvq-uc.a.run.app/get_transactions?userId=${userId}`)
         .then(response => response.json())
         .then(data => setTransactions(data))
         .catch(error => console.error('Error fetching transactions:', error));
@@ -34,17 +35,19 @@ function Home() {
 
   return (
     <ChakraProvider>
-        <MyAppBar />
+        <Flex width="100%" justifyContent="flex-end"> {/* Wrap MyAppBar in a Flex container */}
+          <MyAppBar />
+        </Flex>
         <AddModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
-        <Center bg="#004b49" color="white" padding={8} minHeight="100vh" width="100vw" flexDirection="column" justifyContent="center">
+        <Center bg="gray.800" color="white" padding={8} minHeight="100vh" width="100vw" flexDirection="column" justifyContent="center">
           <VStack spacing={7}>
-            <Heading>dCrypt</Heading>
+            <Heading>DCrypt0</Heading>
             <ButtonGroup variant="outline" spacing="6">
-              <Button size="lg" colorScheme="teal" onClick={onOpen} variant="solid">
+              <Button size="lg" colorScheme="blue" onClick={onOpen} variant="solid">
                 Enter Transaction
               </Button>
               <Link to="/Analysis">
-                <Button size="lg" colorScheme="teal" variant="solid">
+                <Button size="lg" colorScheme="blue" variant="solid">
                   Portfolio Analysis
                 </Button>
               </Link>

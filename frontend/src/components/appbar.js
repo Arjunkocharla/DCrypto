@@ -43,17 +43,15 @@ const MyAppBar = () => {
     <ThemeProvider theme={theme}>
       <AppBar position="static">
         <Toolbar>
+          <div style={{ flexGrow: 1 }}></div> {/* Add this line to push content to the right */}
           <IconButton
-            edge="start"
+            edge="end" // Changed edge to end
             color="inherit"
             aria-label="menu"
             onClick={handleMenu}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            
-          </Typography>
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}

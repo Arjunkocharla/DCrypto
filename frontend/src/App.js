@@ -5,6 +5,7 @@ import Home from "./components/Home"; // Adjust the path according to your struc
 import Login from "./components/Login"; // Adjust the path according to your structure
 import { auth } from './firebaseConfig'; // Confirm this path
 import Analysis from './components/Analysis';
+import Register from "./components/register"; 
 
 function App() {
    const [user, setUser] = useState(null);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Analysis" element={<Analysis />} />
+          <Route path="/register" element={<Register />} />
           {/* Other routes as per your requirements */}
         </Routes>
       </Router>

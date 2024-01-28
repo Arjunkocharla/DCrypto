@@ -13,6 +13,7 @@ from transactions import add_transaction, get_transactions, get_coin_wise_detail
 from collections import defaultdict
 import requests
 from flask_cors import CORS
+import os
 
 
 #from transactions import get_coin_wise_details
@@ -40,6 +41,10 @@ symbol_coin_mapping = {
     }
 
 db = firestore.client()
+
+@app.route('/')
+def home():
+    return 'Hello, World!'
 
 @app.route('/add_transaction', methods=['POST'])
 def handle_add_transaction():
@@ -78,7 +83,7 @@ def get_details_coinwise():
         get_response.append({
             "symbol": symbol,
             "coins": collection[symbol]["coins"],
-            "total_value": collection[symbol]["total_value"],
+            "total_cost": collection[symbol]["total_cost"],
             "total_equity": collection[symbol]["total_equity"],
             "live_price": live_price
         })
@@ -86,4 +91,5 @@ def get_details_coinwise():
     return jsonify(get_response)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8090)
+    port = int(os.getenv('PORT', 8090))  # Use PORT env var if available, else fallback to 8090
+    app.run(debug=True, host='0.0.0.0', port=port)
